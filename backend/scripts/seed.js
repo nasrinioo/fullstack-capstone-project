@@ -39,6 +39,22 @@ async function run() {
 }
 
 run().catch((e) => {
-  console.error(e);
+  const refused =
+    e?.cause?.code === 'ECONNREFUSED' ||
+    e?.message?.includes('ECONNREFUSED') ||
+    e?.name === 'MongoServerSelectionError';
+  if (refused) {
+    console.error(
+      '\nCannot reach MongoDB at',
+      uri,
+      '\n\nStart MongoDB first, for example from the repo root:\n' +
+        '  cd .. && docker compose up -d mongo\n' +
+        'or from backend/:\n' +
+        '  npm run mongo:up\n' +
+        '\nThen run: npm run seed\n'
+    );
+  } else {
+    console.error(e);
+  }
   process.exit(1);
 });

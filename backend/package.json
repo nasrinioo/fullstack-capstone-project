@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node index.js",
+    "mongo:up": "docker compose -f ../docker-compose.yml up -d mongo",
     "seed": "node scripts/seed.js",
     "test": "jest --forceExit --detectOpenHandles"
   },
