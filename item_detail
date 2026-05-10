@@ -1,0 +1,3 @@
+curl -s http://localhost:3060/api/gifts/6a00e48257e8f94b614bd360
+
+{"_id":"6a00e48257e8f94b614bd360","productName":"Ceramic mixing bowls (set of 3)","category":"Kitchen","description":"Unused wedding gift, white glaze.","posted_by":"seed","date":"2026-05-10T20:03:14.518Z"}

@@ -1,0 +1,3 @@
+curl -s "http://localhost:3060/api/search?category=Kitchen"
+
+{"count":3,"category":"Kitchen","items":[{"_id":"6a00e48257e8f94b614bd360","productName":"Ceramic mixing bowls (set of 3)","category":"Kitchen","description":"Unused wedding gift, white glaze.","posted_by":"seed","date":"2026-05-10T20:03:14.518Z"},{"_id":"6a00e48257e8f94b614bd365","productName":"Blender","category":"Kitchen","description":"Works well, moving sale.","posted_by":"seed","date":"2026-05-10T20:03:14.518Z"},{"_id":"6a00e48257e8f94b614bd36f","productName":"Coffee maker — drip","category":"Kitchen","description":"12-cup, includes filters.","posted_by":"seed","date":"2026-05-10T20:03:14.518Z"}]}

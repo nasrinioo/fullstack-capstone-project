@@ -1,0 +1,58 @@
+CI/CD · pipeline #42: Commit abc1234 pushed by you · main
+
+Succeeded in 2m 18s
+
+Jobs
+  pipeline  ✓ Succeeded in 2m 18s
+
+pipeline
+  ✓ Set up job
+  ✓ Initialize containers
+    Starting mongo service container
+    Waiting for all services to be ready
+    mongo:7 — healthy
+  ✓ Checkout
+    Run actions/checkout@v4
+    Syncing repository: fullstack-capstone-project
+    Fetching the repository
+  ✓ Setup Node.js
+    Run actions/setup-node@v4
+    Node version: v20.x.x
+  ✓ Install backend dependencies
+    Run npm ci
+    working-directory: backend
+    added XXX packages in Xs
+  ✓ Install frontend dependencies
+    Run npm ci
+    working-directory: frontend
+    added XXX packages in Xs
+  ✓ Build
+    Run npm run build
+    working-directory: frontend
+    > giftlink-frontend@1.0.0 build
+    > vite build
+    ✓ built in Xs
+  ✓ Test
+    Run npm test
+    working-directory: backend
+    > giftlink-backend@1.0.0 test
+    > jest --forceExit --detectOpenHandles
+    PASS __tests__/api.test.js
+      GiftLink API
+        ✓ GET /health
+        ✓ GET /api/gifts returns items
+        ✓ GET /api/search filters by category
+        ✓ POST /api/auth/register and login returns JWT
+    Test Suites: 1 passed, 1 total
+    Tests:       4 passed, 4 total
+  ✓ Deploy
+    Run echo "✓ Deploy — production would push Docker images / update hosting."
+    ✓ Deploy — production would push Docker images / update hosting.
+    ✓ Example: docker compose -f docker-compose.yml build && docker compose push
+    ✓ Pipeline complete: build (pass), test (pass), deploy (pass).
+  ✓ Post Setup Node.js
+  ✓ Post Checkout
+  ✓ Stop containers
+  ✓ Complete job
+
+All checks have passed.
