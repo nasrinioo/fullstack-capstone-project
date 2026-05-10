@@ -1,0 +1,13 @@
+{
+  "name": "giftlink-sentiment",
+  "private": true,
+  "version": "1.0.0",
+  "description": "NLP helpers (natural) for GiftLink",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "natural": "^8.0.1"
+  }
+}
