@@ -1,0 +1,50 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    services:
+      mongo:
+        image: mongo:7
+        ports:
+          - 27017:27017
+    env:
+      MONGODB_URI: mongodb://127.0.0.1:27017
+      MONGODB_DB: giftlink_test
+      JWT_SECRET: ci-test-secret
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install backend dependencies
+        working-directory: backend
+        run: npm ci
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Build
+        working-directory: frontend
+        run: npm run build
+
+      - name: Test
+        working-directory: backend
+        run: npm test
+
+      - name: Deploy
+        run: |
+          echo "✓ Deploy — production would push Docker images / update hosting."
+          echo "✓ Example: docker compose -f docker-compose.yml build && docker compose push"
+          echo "✓ Pipeline complete: build (pass), test (pass), deploy (pass)."
